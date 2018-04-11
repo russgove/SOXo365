@@ -1,0 +1,18 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "create-sox-yearly-site-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/createSoxYearlySite/CreateSoxYearlySiteWebPart.js",
+          "manifest": "./src/webparts/createSoxYearlySite/CreateSoxYearlySiteWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "CreateSoxYearlySiteWebPartStrings": "lib/webparts/createSoxYearlySite/loc/{locale}.js"
+  }
+}

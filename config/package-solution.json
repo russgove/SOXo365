@@ -1,0 +1,12 @@
+{
+  "$schema": "https://dev.office.com/json-schemas/spfx-build/package-solution.schema.json",
+  "solution": {
+    "name": "create-sox-yearly-site-client-side-solution",
+    "id": "078f36ee-095c-49c5-a9bf-e97cc8e0a20f",
+    "version": "1.0.0.0",
+    "includeClientSideAssets": true
+  },
+  "paths": {
+    "zippedPackage": "solution/create-sox-yearly-site.sppkg"
+  }
+}

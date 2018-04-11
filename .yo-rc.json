@@ -1,0 +1,8 @@
+{
+  "@microsoft/generator-sharepoint": {
+    "version": "1.4.1",
+    "libraryName": "create-sox-yearly-site",
+    "libraryId": "078f36ee-095c-49c5-a9bf-e97cc8e0a20f",
+    "environment": "spo"
+  }
+}
