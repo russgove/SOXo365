@@ -134,9 +134,9 @@ export default class CreateSoxYearlySite extends React.Component<ICreateSoxYearl
             destinationLibraryServerRelativeUrl = url;
           })
           .catch((err) => {
-            this.addMessage(`<h1>Error fethhing relative url of destination library</h1>`)
+            this.addMessage(`<h1>Error fethhing relative url of destination library</h1>`);
             debugger;
-          })
+          });
         // now copy files from library in rootweb
         sp.site.rootWeb.lists.getByTitle(this.props.workingDocumentsSourceLibraryName)
           .rootFolder.files.get()
@@ -151,7 +151,7 @@ export default class CreateSoxYearlySite extends React.Component<ICreateSoxYearl
                       debugger;
                     })
                     .catch((err) => {
-                      this.addMessage(`<h1>${err.data.responseBody["odata.error"].message.value}</h1>`)
+                      this.addMessage(`<h1>${err.data.responseBody["odata.error"].message.value}</h1>`);
                       debugger;
                     })
                 });
