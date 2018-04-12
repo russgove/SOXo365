@@ -775,6 +775,11 @@
       "from": "@types/merge2@0.3.29",
       "resolved": "https://registry.npmjs.org/@types/merge2/-/merge2-0.3.29.tgz"
     },
+    "@types/microsoft-ajax": {
+      "version": "0.0.33",
+      "from": "@types/microsoft-ajax@*",
+      "resolved": "https://registry.npmjs.org/@types/microsoft-ajax/-/microsoft-ajax-0.0.33.tgz"
+    },
     "@types/mime": {
       "version": "2.0.0",
       "from": "@types/mime@*",
@@ -844,6 +849,11 @@
       "version": "1.7.31",
       "from": "@types/serve-static@1.7.31",
       "resolved": "https://registry.npmjs.org/@types/serve-static/-/serve-static-1.7.31.tgz"
+    },
+    "@types/sharepoint": {
+      "version": "2016.1.0",
+      "from": "@types/sharepoint@latest",
+      "resolved": "https://registry.npmjs.org/@types/sharepoint/-/sharepoint-2016.1.0.tgz"
     },
     "@types/sinon": {
       "version": "1.16.34",

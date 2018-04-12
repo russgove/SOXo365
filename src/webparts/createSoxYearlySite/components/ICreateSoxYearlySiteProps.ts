@@ -1,3 +1,6 @@
 export interface ICreateSoxYearlySiteProps {
-  description: string;
+  templateName:string;
+  workingDocumentsSourceLibraryName:string;
+  workingDocumentsDestinationLibraryName:string;
+
 }

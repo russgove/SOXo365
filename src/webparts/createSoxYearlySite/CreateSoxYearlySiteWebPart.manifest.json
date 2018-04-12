@@ -20,7 +20,9 @@
     "description": { "default": "frge" },
     "officeFabricIconFontName": "Page",
     "properties": {
-      "description": "CreateSoxYearlySite"
+      "templateName": "STS#0",
+      "workingDocumentsSourceLibraryName": "Working Papers Templates",
+      "workingDocumentsDestinationLibraryName": "Working Papers",
     }
   }]
 }

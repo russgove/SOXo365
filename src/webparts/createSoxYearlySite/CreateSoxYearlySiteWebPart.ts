@@ -12,19 +12,32 @@ import CreateSoxYearlySite from './components/CreateSoxYearlySite';
 import { ICreateSoxYearlySiteProps } from './components/ICreateSoxYearlySiteProps';
 
 export interface ICreateSoxYearlySiteWebPartProps {
-  description: string;
+  templateName: string;
+  workingDocumentsSourceLibraryName: string;
+  workingDocumentsDestinationLibraryName: string;
 }
-
+import { setup as pnpSetup } from "@pnp/common";
 export default class CreateSoxYearlySiteWebPart extends BaseClientSideWebPart<ICreateSoxYearlySiteWebPartProps> {
 
+  public onInit(): Promise<void> {
+
+    return super.onInit().then(_ => {
+      // other init code may be present
+      pnpSetup({
+        spfxContext: this.context
+      });
+    });
+  }
+
   public render(): void {
-    const element: React.ReactElement<ICreateSoxYearlySiteProps > = React.createElement(
+    const element: React.ReactElement<ICreateSoxYearlySiteProps> = React.createElement(
       CreateSoxYearlySite,
       {
-        description: this.properties.description
+        templateName: this.properties.templateName,
+        workingDocumentsDestinationLibraryName: this.properties.workingDocumentsDestinationLibraryName,
+        workingDocumentsSourceLibraryName:this.properties.workingDocumentsSourceLibraryName
       }
     );
-
     ReactDom.render(element, this.domElement);
   }
 
@@ -43,9 +56,15 @@ export default class CreateSoxYearlySiteWebPart extends BaseClientSideWebPart<IC
             {
               groupName: strings.BasicGroupName,
               groupFields: [
-                PropertyPaneTextField('description', {
-                  label: strings.DescriptionFieldLabel
-                })
+                PropertyPaneTextField("templateName", {
+                  label: "template used to create site"
+                }),
+                PropertyPaneTextField("workingDocumentsSourceLibraryName", {
+                  label: "Working Documents library at root site to copy Working papers from"
+                }),
+                PropertyPaneTextField("workingDocumentsDestinationLibraryName", {
+                  label: "Working Documents library to create in the Yearly site to hold working papers"
+                }),
               ]
             }
           ]
