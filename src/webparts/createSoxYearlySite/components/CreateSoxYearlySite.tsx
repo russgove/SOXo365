@@ -127,44 +127,38 @@ export default class CreateSoxYearlySite extends React.Component<ICreateSoxYearl
       .then(async (listResponse) => {
         debugger;
         this.addMessage(`Created library ${this.props.workingDocumentsDestinationLibraryName}.`);
-        let destinationLibraryServerRelativeUrl:string;
+        let destinationLibraryServerRelativeUrl: string;
         await listResponse.list.rootFolder.serverRelativeUrl
-        .get()
-        .then((url) => { 
-          destinationLibraryServerRelativeUrl= url;
-         })
-        .catch((err) => { 
-          this.addMessage(`<h1>Error fethhing relative url of destination library</h1>`)
-          debugger;
-        })
+          .get()
+          .then((url) => {
+            destinationLibraryServerRelativeUrl = url;
+          })
+          .catch((err) => {
+            this.addMessage(`<h1>Error fethhing relative url of destination library</h1>`)
+            debugger;
+          })
         // now copy files from library in rootweb
         sp.site.rootWeb.lists.getByTitle(this.props.workingDocumentsSourceLibraryName)
           .rootFolder.files.get()
           .then(async (files) => {
             debugger;
             for (let file of files) {
-              let sourceUrl: string = file["ServerRelativeUrl"];
-              let fileName:string=file["Name"];
-              let destinationUrl=destinationLibraryServerRelativeUrl+"/"+fileName;
-              this.addMessage(sourceUrl);
-              this.addMessage(destinationUrl);
-              sp.site.rootWeb.getFileByServerRelativeUrl(sourceUrl)
-                .copyTo(destinationUrl)
-                .then((s) => { 
-                  debugger;
-                 })
-                .catch((err) => { 
-                  debugger; 
-                })
+              await sp.web.getFileByServerRelativeUrl(file["ServerRelativeUrl"]).getBlob()
+                .then(async (blob: Blob) => {
+                  await newWeb.getFolderByServerRelativeUrl(destinationLibraryServerRelativeUrl)
+                    .files.add(file["Name"], blob, true)
+                    .then((s) => {
+                      debugger;
+                    })
+                    .catch((err) => {
+                      this.addMessage(`<h1>${err.data.responseBody["odata.error"].message.value}</h1>`)
+                      debugger;
+                    })
+                });
             }
 
 
-          })
-          .catch((err) => {
-            debugger;
-            alert(err);
-          })
-
+          });
       });
 
     this.addMessage("DONE!!");

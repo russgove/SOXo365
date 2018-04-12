@@ -9,6 +9,14 @@
           "manifest": "./src/webparts/createSoxYearlySite/CreateSoxYearlySiteWebPart.manifest.json"
         }
       ]
+    },
+    "create-sox-audit-site-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/createSoxAuditSite/CreateSoxAuditSiteWebPart.js",
+          "manifest": "./src/webparts/createSoxAuditSite/CreateSoxAuditSiteWebPart.manifest.json"
+        }
+      ]
     }
   },
   "externals": {
@@ -46,6 +54,7 @@
     }
   },
   "localizedResources": {
-    "CreateSoxYearlySiteWebPartStrings": "lib/webparts/createSoxYearlySite/loc/{locale}.js"
+    "CreateSoxYearlySiteWebPartStrings": "lib/webparts/createSoxYearlySite/loc/{locale}.js",
+    "CreateSoxAuditSiteWebPartStrings": "lib/webparts/createSoxAuditSite/loc/{locale}.js"
   }
 }
